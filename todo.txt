@@ -1,0 +1,3 @@
+• setup basic routing.
+• go back to backend and get a good README going
+• change items to products? or something?

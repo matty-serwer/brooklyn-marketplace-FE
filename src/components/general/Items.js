@@ -1,35 +1,27 @@
-import React, { Component } from "react";
+import React, { useEffect, Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchItems } from "./../../redux/actions/itemActions";
 
-class Items extends Component {
-  componentWillMount() {
-    this.props.fetchItems();
-  }
+const Items = (props) => {
+  useEffect(() => {
+    props.fetchItems();
+  }, []);
 
-  componentWillReceiveProps(nextProps) {
-    console.log("Will Receive");
-    if (nextProps.newItem) {
-      this.props.items.unshift(nextProps.newItem);
-    }
-  }
+  const allItems = this.props.items.map((item) => (
+    <div key={item.id}>
+      <h3>{item.name}</h3>
+      <p>{item.description}</p>
+    </div>
+  ));
 
-  render() {
-    const allItems = this.props.items.map((item) => (
-      <div key={item.id}>
-        <h3>{item.name}</h3>
-        <p>{item.description}</p>
-      </div>
-    ));
-    return (
-      <div>
-        <h1>Items</h1>
-        {allItems}
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <h1>Items</h1>
+      {allItems}
+    </div>
+  );
+};
 
 Items.propTypes = {
   fetchItems: PropTypes.func.isRequired,

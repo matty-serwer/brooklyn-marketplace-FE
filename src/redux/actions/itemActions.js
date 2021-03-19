@@ -2,17 +2,16 @@ import { FETCH_ITEMS } from "./../types";
 import axios from 'axios';
 import axiosWithAuth from "./../../utils/axiosWithAuth";
 
+const BACKEND_URL =
+  process.env.REACT_APP_BE_DEPLOYED || 'http://localhost:5000';
+
 export const fetchItems = () => (dispatch) => {
   console.log("fetchItems action");
   axios
-    .get("api/items")
-    .then((res) => res.json())
-    .then((items) =>
-      dispatch({
-        type: FETCH_ITEMS,
-        payload: items,
-      })
-    )
+    .get(`${BACKEND_URL}api/items`)
+    .then(response => {
+      dispatch({ type: 'FETCH_ITEMS', payload: response.data.rooms });
+    })
     .catch((error) => {
       console.log(error);
     });

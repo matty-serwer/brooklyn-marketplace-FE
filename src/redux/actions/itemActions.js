@@ -1,9 +1,10 @@
 import { FETCH_ITEMS } from "./../types";
+import axios from 'axios';
 import axiosWithAuth from "./../../utils/axiosWithAuth";
 
 export const fetchItems = () => (dispatch) => {
   console.log("fetchItems action");
-  axiosWithAuth()
+  axios
     .get("api/items")
     .then((res) => res.json())
     .then((items) =>

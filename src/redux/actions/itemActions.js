@@ -10,7 +10,7 @@ export const fetchItems = () => (dispatch) => {
   axios
     .get(`${BACKEND_URL}api/items`)
     .then(response => {
-      dispatch({ type: 'FETCH_ITEMS', payload: response.data.rooms });
+      dispatch({ type: 'FETCH_ITEMS', payload: response.data });
     })
     .catch((error) => {
       console.log(error);

@@ -11,7 +11,7 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <h1>App Component</h1>
-        {/* <Items /> */}
+        <Items />
       </div>
     </Provider>
   );

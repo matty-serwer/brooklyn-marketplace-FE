@@ -1,18 +1,19 @@
-import './App.css';
+import "./App.css";
 import { Provider } from "react-redux";
+import { Switch, Route } from "react-router-dom";
+import { PrivateRoute } from "./utils/PrivateRoute";
 
-import store from './redux/store'
+import store from "./redux/store";
 
 // components
-import Items from './components/general/Items'
+import Homepage from "./components/general/Homepage"
 
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
-        <h1>App Component</h1>
-        <Items />
-      </div>
+      <Switch>
+        <Route exact path="/" component={Homepage} />
+      </Switch>  
     </Provider>
   );
 }

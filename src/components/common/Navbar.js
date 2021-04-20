@@ -1,8 +1,8 @@
 import { Layout, Tabs, Button, Menu, Dropdown } from "antd";
+import { Link } from "react-router-dom";
 import {
   UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined,
+  RocketOutlined
 } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "./Navbar.css";
@@ -10,17 +10,13 @@ import "./Navbar.css";
 const { TabPane } = Tabs;
 const { Header } = Layout;
 
-const menu = (
+const merchantMenu = (
   <Menu>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-        Login
-      </a>
-    </Menu.Item>
     <Menu.Item icon={<UserOutlined />}>
-      <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-        Register
-      </a>
+      <Link to='/login'>Login</Link>
+    </Menu.Item>
+    <Menu.Item icon={<RocketOutlined />}>
+    <Link to='/register'>Register</Link>
     </Menu.Item>
   </Menu>
 );
@@ -39,14 +35,14 @@ export const Navbar = () => {
           <TabPane tab='Tab 3' key='3'>
           </TabPane>
         </Tabs> */}
-        <Button className="navButton">Link 1</Button>
-        <Button className="navButton">Link 2</Button>
-        <Dropdown overlay={menu}>
-        <Button className="merchButton"
-         type="primary">Merchants</Button>
+        <Button className='navButton'>Link 1</Button>
+        <Button className='navButton'>Link 2</Button>
+        <Dropdown overlay={merchantMenu}>
+          <Button className='merchButton' type='primary'>
+            Merchants
+          </Button>
         </Dropdown>
       </div>
-      
     </div>
   );
 };

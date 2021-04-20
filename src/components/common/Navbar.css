@@ -1,0 +1,34 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: gainsboro;
+  height: 52px;
+}
+
+.logo {
+  margin-top: 7px;
+  margin-left: 10px;
+}
+
+.navButtons {
+  margin-right: 30px;
+  margin-top: 10px;
+  display: flex;
+}
+
+.navButton {
+  background-color: gainsboro;
+  border: none;
+}
+
+.navButton:hover {
+  background-color: gainsboro;
+}
+
+.merchButton {
+
+}
+
+/* .tabs {
+  float: right
+} */

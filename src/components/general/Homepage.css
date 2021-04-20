@@ -1,0 +1,10 @@
+.banner {
+  background-image: url(../../images/flea-market-1262036_1920.jpg);
+  padding: 100px 0;
+  text-align: center;
+}
+
+.banner h1 {
+  color: white;
+  font-size: 90px;
+}

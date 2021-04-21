@@ -5,10 +5,14 @@ import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/ico
 const { SubMenu } = Menu;
 
 export const MainMenu = () => {
+
+  const handleClick = e => {
+    console.log('click', e)
+  }
   return (
     <div className='mainMenu'>
       <Menu
-        onClick={this.handleClick}
+        onClick={handleClick}
         style={{ width: 256 }}
         defaultSelectedKeys={['1']}
         defaultOpenKeys={['sub1']}
@@ -42,3 +46,5 @@ export const MainMenu = () => {
     </div>
   )
 }
+
+export default MainMenu;

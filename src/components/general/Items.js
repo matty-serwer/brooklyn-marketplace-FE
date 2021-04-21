@@ -16,7 +16,7 @@ const Items = (props) => {
   // ));
 
   return (
-    <div>
+    <div className='items'>
       <h1>Items</h1>
       {props.items.length > 0 ? (
         props.items.map((item, index) => (

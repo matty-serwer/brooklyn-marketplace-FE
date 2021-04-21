@@ -8,3 +8,18 @@
   color: white;
   font-size: 90px;
 }
+
+.body { 
+  display: flex;
+  margin-top: 20px;
+}
+
+.items-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+.items {
+
+}

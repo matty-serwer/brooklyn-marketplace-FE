@@ -34,7 +34,7 @@ export const createItem = (itemData) => (dispatch) => {
 export const fetchCategories = () => (dispatch) => {
   console.log("fetchCategories action")
   axios
-    .get(`${BACKEND_URL}api/items`)
+    .get(`${BACKEND_URL}api/categories`)
     .then(response => {
       dispatch({ type: FETCH_CATEGORIES, payload: response.data });
     })

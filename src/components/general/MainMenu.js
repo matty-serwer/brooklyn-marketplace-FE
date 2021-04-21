@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { fetchCategories } from "./../../redux/actions/itemActions";
+
 import { Menu } from "antd";
 import {
   AppstoreOutlined,
   MailOutlined,
-  SettingOutlined,
 } from "@ant-design/icons";
 
 const { SubMenu } = Menu;
 
-export const MainMenu = () => {
+export const MainMenu = (props) => {
+  useEffect(() => {
+    props.fetchCategories();
+  }, []);
+
+  console.log(props.categories);
+
   const handleClick = (e) => {
     console.log("click", e);
   };
+
   return (
     <div className='mainMenu'>
       <Menu
@@ -38,4 +48,15 @@ export const MainMenu = () => {
   );
 };
 
-export default MainMenu;
+MainMenu.propTypes = {
+  fetchCategories: PropTypes.func.isRequired,
+  categories: PropTypes.array.isRequired,
+}
+
+const mapStateToProps = (state) => {
+  return {
+    categories: state.inventory.categories
+  }
+}
+
+export default connect(mapStateToProps, { fetchCategories })(MainMenu)

@@ -32,6 +32,13 @@ export const MainMenu = (props) => {
         mode='inline'
       >
         <SubMenu key='sub1' icon={<MailOutlined />} title='Categories'>
+          {props.categories.length > 0 ? (
+            props.categories.map((item) => (
+              <Menu.Item key={item.id}>{item.name}</Menu.Item>
+            ))
+          ) : (
+            <p>Loading Categories</p>
+          )}
           <Menu.Item key='1'>Option 1</Menu.Item>
           <Menu.Item key='2'>Option 2</Menu.Item>
           <Menu.Item key='3'>Option 3</Menu.Item>

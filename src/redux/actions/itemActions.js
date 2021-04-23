@@ -1,4 +1,4 @@
-import { FETCH_ITEMS, FETCH_CATEGORIES } from "./../types";
+import { FETCH_ITEMS, FETCH_CATEGORIES, FETCH_LOCATIONS } from "./../types";
 import axios from 'axios';
 import axiosWithAuth from "./../../utils/axiosWithAuth";
 
@@ -37,6 +37,20 @@ export const fetchCategories = () => (dispatch) => {
     .get(`${BACKEND_URL}api/categories`)
     .then(response => {
       dispatch({ type: FETCH_CATEGORIES, payload: response.data });
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+}
+
+// locations
+
+export const fetchLocations = () => (dispatch) => {
+  console.log("fetchLocations action")
+  axios
+    .get(`${BACKEND_URL}api/locations`)
+    .then(response => {
+      dispatch({ type: FETCH_LOCATIONS, payload: response.data });
     })
     .catch((error) => {
       console.log(error);

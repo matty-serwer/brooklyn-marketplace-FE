@@ -1,8 +1,9 @@
-import { FETCH_ITEMS, FETCH_CATEGORIES } from "./../types"
+import { FETCH_ITEMS, FETCH_CATEGORIES, FETCH_LOCATIONS } from "./../types"
 
 const initialState = {
   items: [],
   categories: [],
+  locations: [],
 }
 
 export const itemReducer = (state = initialState, action) => {
@@ -16,6 +17,11 @@ export const itemReducer = (state = initialState, action) => {
       return {
         ...state,
         categories: action.payload
+      }
+    case FETCH_LOCATIONS:
+      return {
+        ...state,
+        locations: action.payload
       }
     default:
       return state;
